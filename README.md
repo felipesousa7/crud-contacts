@@ -1,40 +1,62 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Autenticação com Next.js, Firebase e Material-UI
 
-## Getting Started
+Este projeto implementa a funcionalidade de autenticação utilizando Next.js como framework front-end, Firebase para a autenticação e armazenamento de dados, e Material-UI para a interface de usuário. O projeto inclui páginas de login, registro, e funcionalidades como exibição de mensagens de sucesso ou erro através do Snackbar do Material-UI.
 
-First, run the development server:
+## Tecnologias Utilizadas
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+- Next.js
+- Firebase Authentication
+- Firebase Firestore
+- Material-UI
+- Tailwind CSS
+
+## Instalação
+
+1. Clone o repositório: `git clone https://github.com/seu-usuario/nome-do-repositorio.git`
+2. Acesse o diretório do projeto: `cd nome-do-repositorio`
+3. Instale as dependências: `npm install` ou `yarn install`
+
+## Configuração do Firebase
+
+Antes de executar o projeto, é necessário configurar o Firebase:
+
+1. Crie um projeto no Firebase: [console.firebase.google.com](https://console.firebase.google.com)
+2. Copie as credenciais do projeto e adicione ao arquivo `.env.local` conforme o exemplo abaixo:
+
+```plaintext
+NEXT_PUBLIC_FIREBASE_API_KEY=seu-api-key
+NEXT_PUBLIC_FIREBASE_AUTH_DOMAIN=seu-auth-domain
+NEXT_PUBLIC_FIREBASE_PROJECT_ID=seu-project-id
+NEXT_PUBLIC_FIREBASE_STORAGE_BUCKET=seu-storage-bucket
+NEXT_PUBLIC_FIREBASE_MESSAGING_SENDER_ID=seu-messaging-sender-id
+NEXT_PUBLIC_FIREBASE_APP_ID=seu-app-id
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+3. Habilite a autenticação por e-mail/senha no console do Firebase.
+4. Crie uma coleção "contacts" no Firestore para armazenar os contatos.
 
-You can start editing the page by modifying `pages/index.tsx`. The page auto-updates as you edit the file.
+## Executando o Projeto
 
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.ts`.
+Após configurar o Firebase, você pode executar o projeto localmente:
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
+- Desenvolvimento: `npm run dev` ou `yarn dev`
+- Produção: `npm run build` + `npm start` ou `yarn build` + `yarn start`
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+Acesse o projeto em [http://localhost:3000](http://localhost:3000).
 
-## Learn More
+## Funcionalidades
 
-To learn more about Next.js, take a look at the following resources:
+- Página de login com autenticação Firebase.
+- Página de registro de usuário.
+- Adição, remoção e listagem de contatos utilizando o Firestore.
+- Exibição de mensagens de sucesso ou erro utilizando o Snackbar do Material-UI.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## Estrutura do Projeto
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+A estrutura do projeto é organizada da seguinte forma:
 
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+- `/pages`: Páginas do Next.js, incluindo login, registro e outras páginas relacionadas à autenticação.
+- `/components`: Componentes reutilizáveis, como formulários, botões, etc.
+- `/firebase`: Configuração e funções para interação com o Firebase.
+- `/context`: Contexto de autenticação utilizando o AuthContext do React.
+- `/styles`: Estilos globais e configuração do Tailwind CSS.
